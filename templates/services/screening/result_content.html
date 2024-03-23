@@ -1,0 +1,192 @@
+{% load static %}
+{#<link rel="stylesheet" href="{% static 'services/css/result_style.css' %}"/>#}
+<link rel="stylesheet" href="{% static 'common/DataTables/DataTables-1.13.8/css/jquery.dataTables.css' %}">
+{#<link rel="stylesheet" href="{% static 'common/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css' %}">#}
+
+{#<script src="{% static 'common/DataTables/pdfmake-0.2.7/pdfmake.js' %}"></script>#}
+{#<script src="{% static 'common/DataTables/pdfmake-0.2.7/vfs_fonts.js' %}"></script>#}
+{##}
+<script src="{% static 'common/DataTables/DataTables-1.13.8/js/jquery.dataTables.js' %}"></script>
+{#<script src="{% static 'common/DataTables/Buttons-2.4.2/js/dataTables.buttons.js' %}"></script>#}
+{#<script src="{% static 'common/DataTables/Buttons-2.4.2/js/buttons.html5.js' %}"></script>#}
+<style>
+    .table-bordered > :not(caption) > * > * {
+        border-width: var(--bs-border-width);
+    }
+
+    .dt-body-multiline {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+</style>
+<div class="main-content container mb-5">
+    <div class="row mt-4">
+        <div class="col-xxl-5 col-md-5">
+            <div class="card info-card sales-card">
+                <div class="card-body">
+                    <h5 class="card-title">Number of success molecules</h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <svg x="1702113587880" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="4322" width="64" height="64">
+                                <path d="M512 512m-388 0a388 388 0 1 0 776 0 388 388 0 1 0-776 0Z" fill="#FF7B15"
+                                      p-id="4323"></path>
+                                <path d="M372.31 423.511m-52.511 0a52.511 52.511 0 1 0 105.022 0 52.511 52.511 0 1 0-105.022 0Z"
+                                      fill="#231815" p-id="4324"></path>
+                                <path d="M651.69 423.511m-52.511 0a52.511 52.511 0 1 0 105.022 0 52.511 52.511 0 1 0-105.022 0Z"
+                                      fill="#231815" p-id="4325"></path>
+                                <path d="M512.011 706.218c79.08 0 145.727-53.231 166.063-125.817 6.554-23.394-10.835-46.623-35.13-46.623H381.068c-23.959 0-41.692 22.74-35.337 45.841 20.075 72.985 86.917 126.599 166.28 126.599z"
+                                      fill="#FFFFFF" p-id="4326"></path>
+                            </svg>
+                        </div>
+                        <div class="ps-3">
+                            <h6>{{ result.success }}</h6>
+                            <span class="text-success small pt-1 fw-bold">{{ result.successrate|floatformat:2 }} %</span>
+                            <span class="text-muted small pt-2 ps-1">molecules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-5 col-md-5">
+            <div class="card info-card sales-card">
+                <div class="card-body">
+                    <h5 class="card-title">Number of invalid molecules</h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <svg x="1702113633714" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="1133" width="64" height="64">
+                                <path d="M512 512m-388 0a388 388 0 1 0 776 0 388 388 0 1 0-776 0Z" fill="#FF7B15"
+                                      p-id="1134"></path>
+                                <path d="M413.729 451.511h-84.07c-15.4 0-28-12.6-28-28s12.6-28 28-28h84.07c15.4 0 28 12.6 28 28s-12.6 28-28 28zM694.341 451.511h-84.07c-15.4 0-28-12.6-28-28s12.6-28 28-28h84.07c15.4 0 28 12.6 28 28s-12.6 28-28 28z"
+                                      fill="#231815" p-id="1135"></path>
+                                <path d="M400.162 637.011a24.896 24.896 0 0 1-15.746-5.595c-10.718-8.704-12.35-24.449-3.646-35.167 32.652-40.204 81.055-63.263 132.799-63.263 49.543 0 96.607 21.465 129.125 58.892 9.056 10.422 7.948 26.212-2.475 35.269-10.423 9.057-26.213 7.948-35.269-2.475-23.018-26.492-56.325-41.686-91.382-41.686-36.615 0-70.872 16.323-93.986 44.784-4.94 6.084-12.149 9.241-19.42 9.241z"
+                                      fill="#FFFFFF" p-id="1136"></path>
+                            </svg>
+                        </div>
+                        <div class="ps-3">
+                            <h6>{{ result.invalid }}</h6>
+                            <span class="text-danger small pt-1 fw-bold">{{ result.invalidrate|floatformat:2 }} %</span>
+                            <span class="text-muted small pt-2 ps-1">molecules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-2 col-md-2 d-flex align-items-center">
+            <button type="button" class="btn btn-outline-success" onclick="download()">
+                <i class="fas fa-download"></i>
+                Download as CSV
+            </button>
+        </div>
+    </div>
+    <div class=" mt-4">
+        <table class="table pt-4 table-hover table-bordered align-middle table-sm" id="basic-table">
+            <thead class="table-dark">
+            <tr style="font-size: 1.1rem;">
+                <th class="text-center p-3 vertical-middle" style="background-color: #353A40;">Index</th>
+                <th class="text-center p-3 vertical-middle" style="background-color: #353A40;">Molecule</th>
+                <th class="p-3 vertical-middle" style="background-color: #353A40;">SMILES</th>
+                <th class="text-center p-3 vertical-middle" style="background-color: #353A40;">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function download() {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'service:download' %}",
+            data: {'filename': "{{ filename }}"},
+            beforeSend: function (xhr, setting) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}")
+            },
+            success: function (result) {
+                var blob = new Blob([result]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "ChemFH_result.csv";
+                link.click();
+            },
+            error: function (result) {
+            }
+        });
+    }
+
+    function set_datatable_data() {
+        let request_url = '/services/screening-result/';
+        var table = $('#basic-table').DataTable({
+            "pageLength": 10,
+            "aLengthMenu": [10, 20, 40],
+            destroy: true,
+            "serverSide": true,
+            scrollCollapse: true,
+            "pagingType": "simple_numbers",
+            ajax: {
+                "url": request_url,
+                "type": "post",
+                "data": {
+                    'filename': '{{ filename }}'
+                }
+            },
+            data: '',
+            "columns": [
+                {
+                    "index": null, "width": "10%", 'align': 'center', 'render': function (data, type, full, meta) {
+                        return meta.row + 1;
+                    }
+                }, {
+                    "molecule": null, "width": "30%", 'render': function (data, type, full, meta) {
+                        return full.structure;
+                    }
+                }, {
+                    "smiles": null, "width": '50%', 'render': function (data, type, full, meta) {
+                        return full.smiles;
+                    }
+                }, {
+                    "detail": null, "width": "10%", 'render': function (data, type, full, meta) {
+                        return '<a class="btn btn-primary" href="/services/screening/{{ filename }}/' + full.index +
+                            '">View</a>';
+                    }
+                }
+            ],
+            columnDefs: [
+                {
+                    targets: [0, 1, 3],
+                    className: 'dt-body-center'
+                }, {
+                    targets: [2],
+                    className: "dt-body-multiline"
+                }
+            ],
+            "processing": true,
+            "language": {
+                "paginate": {
+                    "first": "First Page",
+                    "last": "Last Page",
+                    "next": "<i class='far fa-chevron-right'></i>",
+                    "previous": "<i class='far fa-chevron-left'></i>",
+                },
+                "zeroRecords": "No matching records",
+                "info": "from _START_ to _END_ items，total _TOTAL_ items",
+                "search": "Search: ",
+                "processing": "Loading...",
+                "searchPlaceholder": "Search by Drug Name",
+            },
+            "ordering": false,
+            "searching": false,
+        });
+    }
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}',}
+        });
+
+        set_datatable_data();
+    });
+</script>

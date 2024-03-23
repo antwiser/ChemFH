@@ -1,0 +1,407 @@
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.section-bg {
+    background-color: #f3f5fa;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #37517e;
+}
+
+.section-title h2::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #47b2e4;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+.section-title p {
+    margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services .icon-box {
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    padding: 50px 30px;
+    transition: all ease-in-out 0.4s;
+    background: #fff;
+}
+
+.services .icon-box .icon {
+    /*height: 36px;*/
+    font-size: 36px;
+    /*margin-bottom: 10px;*/
+}
+
+.services .icon-box i {
+    color: #47b2e4;
+    font-size: 36px;
+    transition: 0.3s;
+}
+
+.services .icon-box h4 {
+    font-weight: 500;
+    /*margin-bottom: 15px;*/
+    margin-bottom: 0;
+    line-height: 24px;
+    font-size: 24px;
+}
+
+.services .icon-box h4 a {
+    color: #37517e;
+    transition: ease-in-out 0.3s;
+}
+
+.services .icon-box p {
+    text-align: justify;
+    line-height: 24px;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.services .icon-box .btn-learn-more {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 4px;
+    transition: 0.3s;
+    line-height: 1;
+    color: #47b2e4;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+    margin-top: 6px;
+    border: 2px solid #47b2e4;
+}
+
+.services .icon-box .btn-learn-more:hover {
+    background: #47b2e4;
+    color: #fff;
+    text-decoration: none;
+}
+
+.services .icon-box:hover {
+    transform: translateY(-10px);
+}
+
+.services .icon-box:hover h4 #e_a {
+    color: #A370F9;
+}
+
+.services .icon-box:hover h4 #s_a {
+    color: #F4658C;
+}
+
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+.portfolio .portfolio-item {
+    margin-bottom: 30px;
+}
+
+.portfolio #portfolio-flters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+}
+
+.portfolio #portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #222222;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+    color: #fff;
+    background: #3498db;
+}
+
+.portfolio #portfolio-flters li:last-child {
+    margin-right: 0;
+}
+
+.portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px dashed rgb(34, 34, 34);
+    border-radius: 10px;
+    box-shadow: 0 0 0 10px white;
+    /*background: rgba(34, 34, 34, 0.6);*/
+}
+
+.portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(34, 34, 34, 0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+}
+
+.portfolio .portfolio-wrap img {
+    transition: all ease-in-out 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.portfolio .portfolio-wrap .portfolio-info h4 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.portfolio .portfolio-wrap .portfolio-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    /*text-transform: uppercase;*/
+    text-align: justify;
+    line-height: 1.2rem;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+}
+
+.portfolio .portfolio-wrap .portfolio-links {
+    text-align: center;
+    z-index: 4;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a {
+    color: #fff;
+    margin: 0 5px 0 0;
+    font-size: 28px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+    color: #3498db;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+    opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover img {
+    transform: scale(1.2);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+    padding-top: 40px;
+}
+
+.portfolio-details .portfolio-details-slider img {
+    width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #3498db;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #3498db;
+}
+
+.portfolio-details .portfolio-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+}
+
+.portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li + li {
+    margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+    padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+    padding: 0;
+}
+
+
+/*-------------------------------------------------------------
+# Departments
+--------------------------------------------------------------*/
+.departments .nav-tabs {
+    border: 0;
+}
+
+.departments .nav-link {
+    border: 0;
+    padding: 20px;
+    color: #555555;
+    border-radius: 0;
+    border-left: 5px solid #fff;
+    cursor: pointer;
+}
+
+.departments .nav-link h4 {
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.departments .nav-link p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.departments .nav-link:hover h4 {
+    color: #2A4058;
+}
+
+.departments .nav-link.active {
+    background: #f7fcfc;
+    border-color: #2A4058;
+}
+
+.departments .nav-link.active h4 {
+    color: #2A4058;
+}
+
+.departments .tab-pane.active {
+    animation: slide-down 0.5s ease-out;
+}
+
+.departments .tab-pane img {
+    float: left;
+    max-width: 420px;
+    padding: 0 15px 0 0;
+}
+
+@media (max-width: 768px) {
+    .departments .tab-pane img {
+        float: none;
+        padding: 0 0 15px 0;
+        max-width: 100%;
+    }
+}
+
+.departments .tab-pane h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2A4058;
+}
+
+.departments .tab-pane p {
+    color: #777777;
+    text-align: justify;
+}
+
+.departments .tab-pane p:last-child {
+    margin-bottom: 0;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

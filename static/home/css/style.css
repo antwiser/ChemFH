@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Lobster';
+    src: url('../fonts/Lobster-Regular.ttf');
+}
+
+html {
+    font-size: 100%;
+    height: 100%;
+}
+
+.antin-container {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.antin-contain {
+    flex: 1;
+}
+
+a {
+    color: #fdc134;
+    text-decoration: none;
+}
+
+/*::-webkit-scrollbar {*/
+/*    background-color: #ccc;*/
+/*    width: 8px;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    background-color: #0771B8;*/
+/*}*/
+
+.content {
+    padding-bottom: 80px;
+}
+
+.media-body h5 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.media-body .disc-text {
+    text-align: justify;
+    font-size: 1.2rem;
+    margin-left: 45px;
+}
+
+.highlight-title .title {
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: #0771B8;
+}

@@ -1,0 +1,45 @@
+{% load static %}
+
+<style>
+    .pre-link {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .pre-link:hover {
+        color: orange;
+    }
+</style>
+
+<div class="jumbotron jumbotron-fluid pt-0" style="background-color: rgba(42,64,88)">
+    <div class="container" style="width: 86%" id="banner-container-fluid">
+        <div class="row d-flex justify-content-around align-items-center" style="height: 100%">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pl-4 pr-4" id="container-right"
+                 style="color: #fff; font-weight: 700; font-size: 1.25rem">
+                <h1 class="fw-bolder text-center mb-3" style="font-size: 48px; color: #d2e0ed">ChemFH</h1>
+                <p class="lead" style="text-align: justify; font-weight: 350; line-height: 2rem; font-size: 1.1rem;
+                font-family: 'Raleway', sans-serif">
+                    In early drug discovery, detecting frequent false positives poses a significant challenge, leading
+                    to wasted time and resources in hit identification. To address this, <a
+                        href="#">ChemFH</a> (Chemical Frequent
+                    Hitter), an integrated online platform, predicts potential frequent hitters across various
+                    parameters. Utilizing high-quality database and Directed Message Passing Neural Network (DMPNN)
+                    architectures, ChemFH enhances the efficiency of drug R&D by achieving reliable detection of
+                    frequent hitters in colloidal aggregate, firefly luciferase reporter enzyme inhibition,
+                    fluorescence, chemical reactivity, and promiscuity.
+                </p>
+                <div class="text-center">
+                    <a href="{% url 'home:documentation' %}" class="button button-primary learn-more mb-2"
+                       style="text-decoration: none">Learn
+                        More</a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center d-flex justify-content-center
+            align-items-center my-5"
+                 id="container-left"
+                 style="">
+                <img src="{% static 'home/img/homepage.png' %}" alt="" class="img-fluid" style="width: 86%"/>
+            </div>
+        </div>
+    </div>
+</div>

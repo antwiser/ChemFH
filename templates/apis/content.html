@@ -1,0 +1,254 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'publication/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'apis/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'apis/css/prism.css' %}">
+<style>
+    .apiDocsPage h1 {
+        color: #1d1c1d;
+        font-size: 2.5rem;
+        letter-spacing: -1.3px;
+        line-height: 1;
+        margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .apiDocsPage h2 {
+        color: #1d1c1d;
+        font-size: 2rem;
+        letter-spacing: -1px;
+        margin: clamp(2.5rem, 2.5vw, 3.5rem) 0 clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .nav-item {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .nav-link {
+        /*font-size: 1.2rem;*/
+        width: 100%;
+    }
+</style>
+<main class="main-content container mt-5 mb-5">
+
+    <div class="apiDocsPage">
+        <h1 class="">API Tutorial</h1>
+
+        <p class="warn">This document aims to elucidate how ChemFH’s API service is structured, with a variety of
+            usage cases as
+            illustrations, to help new users learn how the service works and how to construct the URLs that are the
+            interface to
+            this service.</p>
+        <blockquote>
+            <i class="far fa-info-circle"></i> USAGE POLICY: Please note
+            that ChemFH API is not designed
+            for processing very large volumes (millions) of
+            requests at the same time. We suggest that any script or application refrain from exceeding 5 requests per
+            second to prevent overloading the ChemFH servers. If you have a large data set that you need to compute
+            with, please contact us for assistance in optimizing your task, as there are likely more efficient ways to
+            approach such bulk queries.
+        </blockquote>
+
+        <h2 class="" id="">1. Calculate the FH properties of
+            molecule(s)</h2>
+        <blockquote>
+            <p class="m-0"><span class="badge text-bg-primary">POST</span> <span color="grey"><code>http://121.40.210.46:8110</code></span>/api/fh
+            </p>
+        </blockquote>
+        <p><span style="color: #2878b5">Description:</span></p>
+        <p>Calculate the FH properties of molecule(s), including model-based and rule-based.</p>
+        <blockquote>
+            <p class="m-0"><i class="far fa-info-circle"></i> The values in the '_index' column of the result are shown
+                as a two-dimensional array, where each
+                element represents the index of the matching atom highlighted in the molecule.</p>
+        </blockquote>
+        <p><span style="color: #2878b5">Query Parameters &amp; Example:</span></p>
+        <table id="" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>SMILES</td>
+                <td width="54%">["CC(=O)Oc1ccccc1C(O)=O", "CC(C)OC(=O)CC(=O)CSc1nc2c(cc1C#N)CCC2"]</td>
+                <td>string or [string]</td>
+                <td>Molecular SMILES string, which is commonly provided by most chemical toolkits.</td>
+            </tr>
+            </tbody>
+        </table>
+        <p><span style="color: #2878b5">Result &amp; Example:</span></p>
+        <p>Return all computable properties of the molecule.</p>
+        <p>Content-Type: <code>application/json,application/xml</code></p>
+        <pre class="code-pre"><code class="language-json">
+{
+    "status": "success",
+    "code": 200,
+    "data": {
+        // Identifier id for this task
+        "taskid": "tmpihx1sr021706355868",
+        "number of all molecules": 2,
+        "number of valid molecules": 2,
+        "data": [
+            {
+                "smiles": "CC(C)OC(=O)CC(=O)CSc1nc2c(cc1C#N)CCC2",
+                // The following seven lines represent the model predictions for the seven mechanisms
+                "Other assay interference": 0.993,
+                "Blue fluorescence": 1.0,
+                "FLuc inhibitors": 0.891,
+                "Promiscuous compounds": 0.168,
+                "Colloidal aggregators": 0.557,
+                "Reactive compounds": 0.0,
+                "Green fluorescence": 0.852,
+                // The following seven rows indicate the uncertainty of the model prediction results
+                // for the seven mechanisms
+                "Other assay interference uncertainty": 1.5e-05,
+                "Blue fluorescence uncertainty": 0.0,
+                "FLuc inhibitors uncertainty": 0.006625,
+                "Promiscuous compounds uncertainty": 0.039083,
+                "Colloidal aggregators uncertainty": 0.034897,
+                "Reactive compounds uncertainty": 0.0,
+                "Green fluorescence uncertainty": 0.021514,
+                // The following 17 lines represent the matching results of the 17 rules
+                "Aggregators_index": [],
+                "Fluc_index": [],
+                "Blue_fluorescence_index": [],
+                "Green_fluorescence_index": [],
+                "Reactive_index": [],
+                "Other_assay_interference_index": [],
+                "Promiscuous_index": [],
+                // Each element of the list represents the atomic highlighting number of a matching substructure
+                "ALARM_NMR_index": ...,
+                "BMS_index": [],
+                "Chelator_Rule_index": [],
+                "GST_FHs_Rule_index": [],
+                "His_FHs_Rule_index": [],
+                "Luciferase_Inhibitor_Rule_index": [],
+                "NTD_index": ...,
+                "PAINS_index": [],
+                "Potential_Electrophilic_Rule_index": [],
+                "Lilly_index": []
+            }, {
+                // ... Detailed information on the second molecule
+            }
+        ],
+        "explanation": {
+            "Aggregators": "Category 0: Non-aggregators; Category 1: aggregators. The output value is the probability of being aggregators, within the range of 0 to 1.",
+            "FLuc inhibitors": "Category 0: Non-promiscuous; Category 1: promiscuous. The output value is the probability of being promiscuous, within the range of 0 to 1.",
+            "Blue/Green fluorescence": "Category 0: Non-fluorescence; Category 1: fluorescence. The output value is the probability of being fluorescence, within the range of 0 to 1.",
+            "Reactive compounds": "Category 0: Non-reactive; Category 1: reactive. The output value is the probability of being reactive compounds, within the range of 0 to 1.",
+            "Other assay interference": "Category 0: Non-assay interferences; Category 1: assay interferences. The output value is the probability of being assay interferences, within the range of 0 to 1.",
+            "Promiscuous compounds": "Category 0: Non-promiscuous; Category 1: promiscuous. The output value is the probability of being promiscuous, within the range of 0 to 1.",
+            "XX uncertainty": "Uncertainty for each property",
+            "XX_index": "Atomic index of rule matches for each property"
+        }
+    }
+}
+    </code></pre>
+
+        <h2 class="" id="">2. Quick Examples</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Small Dataset
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Massive Dataset
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                 tabindex="0">
+                <p class="mt-5"><span style="color: #2878b5">Example:</span></p>
+                <pre><code class="language-python">
+import requests
+
+baseUrl = 'http://121.40.210.46:8110'
+
+if __name__ == '__main__':
+    api = '/api/fh'
+    url = baseUrl + api
+    param = {
+        'SMILES': ["CC(=O)Oc1ccccc1C(O)=O", "CC(C)OC(=O)CC(=O)CSc1nc2c(cc1C#N)CCC2"],
+    }
+    response = requests.post(url, json=param)
+    if response.status_code == 200:
+        data = response.json()['data']
+        print(data)
+
+                    </code></pre>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <p class="mt-5">
+                    For users who need to compute a large number of molecules, we recommend splitting the list of
+                    molecules
+                    into multiple subtasks for iterative computation (1000 molecules). Submit the task and get the
+                    results
+                    in the form of code, and then stitch the results of each subtask into the final result. We still
+                    recommend using the <span style="color: blue">Python</span> language as he is quite handy.
+                </p>
+                <pre><code class="language-python">
+import json
+import requests
+import pandas as pd
+
+baseUrl = 'http://121.40.210.46:8110'
+
+
+def transform(data):
+    resultList = []
+    for mol in data['data']:
+        if not mol['data']:
+            # Invalid SMILES
+            tmp = {'smiles': mol['smiles']}
+        else:
+            tmp = dict({'smiles': mol['smiles']})
+            for _, admet in mol['data'].items():
+                for endpoint in admet:
+                    # endpoint is a dict
+                    tmp[endpoint['name']] = endpoint['value']
+        resultList.append(tmp)
+    return pd.DataFrame(resultList).fillna('Invalid SMILES')
+
+
+def divide_list(lst, n):
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+
+if __name__ == '__main__':
+    api = '/api/admet'
+    url = baseUrl + api
+    param = {
+        'SMILES': []
+    }
+    n = 2000
+    smiles_list = ['CN1C2CCC1CC(OC(=O)c1cccn1C)C2', 'O=C(O)Nc1scnc1C(=O)Nc1nccs1',
+                   'COc1ccc(C=C(F)C(=O)c2cc(OC)c(OC)c(OC)c2)cc1'] * 2500
+
+    for _, sublist in enumerate(divide_list(smiles_list, n)):
+        param['SMILES'] = sublist
+
+        response = requests.post(url, json=param)
+
+        if response.status_code == 200:  # If access is successful
+            data = response.json()['data']
+            # transform to csv file
+            result = transform(data)
+            print(result)
+            result.to_csv('result' + str(_) + '.csv', index=False)
+
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="{% static 'apis/js/prism.js' %}"></script>

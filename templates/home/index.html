@@ -1,0 +1,329 @@
+{% extends 'common/base_home.html' %}
+{% load static %}
+
+{% block notice %}
+{% endblock %}
+
+{% block content %}
+    <style>
+        .version-lic {
+            margin: 2rem;
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+        }
+    </style>
+    <!-- ======= About Us Section ======= -->
+    <section id="services" class="about services section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Calculation</h2>
+            </div>
+            <div class="row content">
+                <div class="col-lg-6">
+                    <div class="icon-box text-center">
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <svg x="1637735780761" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="1808" width="36" height="36">
+                                <path d="M755.8656 951.4496H269.6192c-107.264 0-194.2016-86.9376-194.2016-194.2016V271.0016C75.4176 163.7376 162.3552 76.8 269.6192 76.8h486.2464c107.264 0 194.2016 86.9376 194.2016 194.2016v486.2464c0 107.264-86.9376 194.2016-194.2016 194.2016z"
+                                      fill="#A46FFF" p-id="1809"></path>
+                                <path d="M799.7952 424.4992c-14.1312 0-25.6-11.4688-25.6-25.6V346.7264c0-51.968-42.2912-94.2592-94.2592-94.2592h-65.024c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h65.024c80.1792 0 145.4592 65.2288 145.4592 145.4592V398.848c0 14.1824-11.4688 25.6512-25.6 25.6512zM229.0688 423.424c-14.1312 0-25.6-11.4688-25.6-25.6v-51.0464c0-80.1792 65.2288-145.4592 145.4592-145.4592h67.1744c14.1312 0 25.6 11.4688 25.6 25.6s-11.4688 25.6-25.6 25.6H348.928c-51.968 0-94.2592 42.2912-94.2592 94.2592v51.0464c0 14.1312-11.4688 25.6-25.6 25.6zM415.0272 823.1936H348.928c-80.1792 0-145.4592-65.2288-145.4592-145.4592v-44.5952c0-14.1312 11.4688-25.6 25.6-25.6s25.6 11.4688 25.6 25.6v44.5952c0 51.968 42.2912 94.2592 94.2592 94.2592h66.0992c14.1312 0 25.6 11.4688 25.6 25.6s-11.4688 25.6-25.6 25.6zM679.936 823.1936h-61.7984c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h61.7984c51.968 0 94.2592-42.2912 94.2592-94.2592v-43.52c0-14.1312 11.4688-25.6 25.6-25.6s25.6 11.4688 25.6 25.6v43.52c0 80.2304-65.28 145.4592-145.4592 145.4592zM824.5248 542.2592H209.7152c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h614.7584c14.1312 0 25.6 11.4688 25.6 25.6s-11.4176 25.6-25.5488 25.6z"
+                                      fill="#F7F8F8" p-id="1810"></path>
+                            </svg>
+                            <h4 class="ms-2"><a href="javascript:void(0);" id="e_a">Evaluation Mode</a></h4>
+                        </div>
+                        <p class="my-3">
+                            Evaluation Pattern is able to comprehensively evaluate the risk of the queried molecule
+                            based on the combination of credible prediction models and useful substructure rules.
+                        </p>
+                        <a href="{% url 'service:evaluation' %}" class="btn-learn-more ">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="icon-box text-center">
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <svg x="1637735677487" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="1630" width="36" height="36">
+                                <path d="M755.4048 954.624H269.1584c-107.264 0-194.2016-86.9376-194.2016-194.2016V274.1248c0-107.264 86.9376-194.2016 194.2016-194.2016h486.2464c107.264 0 194.2016 86.9376 194.2016 194.2016v486.2464c0.0512 107.264-86.9376 194.2528-194.2016 194.2528z"
+                                      fill="#F6648C" p-id="1631"></path>
+                                <path d="M700.416 216.8832H316.0576c-70.6048 0-128 62.4128-128 139.1104v322.6624c0 76.6976 57.3952 139.1104 128 139.1104h229.12c14.1312 0 25.6-11.4688 25.6-25.6s-11.4688-25.6-25.6-25.6H316.0576c-42.3424 0-76.8-39.424-76.8-87.9104V355.9936c0-48.4864 34.4576-87.9104 76.8-87.9104h384.3584c42.3424 0 76.8 39.424 76.8 87.9104v131.584c0 14.1312 11.4688 25.6 25.6 25.6s25.6-11.4688 25.6-25.6v-131.584c0-76.6976-57.4464-139.1104-128-139.1104z"
+                                      fill="#F7F8F8" p-id="1632"></path>
+                                <path d="M640.8704 387.5328c0-14.1312-11.4688-25.6-25.6-25.6H349.5936c-14.1312 0-25.6 11.4688-25.6 25.6s11.4688 25.6 25.6 25.6h265.6768c14.1312 0 25.6-11.4176 25.6-25.6zM349.5936 507.0848c-14.1312 0-25.6 11.4688-25.6 25.6s11.4688 25.6 25.6 25.6h112.5888c14.1312 0 25.6-11.4688 25.6-25.6s-11.4688-25.6-25.6-25.6H349.5936zM766.4128 712.3968c23.6032-28.3648 34.8672-64.2048 31.5904-101.0176-6.7072-76.3392-74.24-132.9664-150.528-126.2592-76.3392 6.7072-132.9664 74.24-126.2592 150.528 6.3488 72.192 67.1232 126.8224 138.2912 126.8224 4.0448 0 8.1408-0.1536 12.2368-0.5632 19.712-1.7408 38.4512-7.5264 55.2448-16.8448l42.2912 50.0224c5.0688 5.9904 12.288 9.0624 19.5584 9.0624 5.8368 0 11.7248-1.9968 16.4864-6.0416 10.8032-9.1136 12.1344-25.2928 3.0208-36.096l-41.9328-49.6128z m-99.1232-1.4848c-48.2304 4.1984-90.8288-31.5392-95.0784-79.7184-4.2496-48.1792 31.5392-90.8288 79.7184-95.0784 2.6112-0.2048 5.1712-0.3584 7.7312-0.3584 44.9536 0 83.3536 34.4576 87.3472 80.0768 2.048 23.3472-5.12 46.08-20.1728 64.0512a87.07072 87.07072 0 0 1-59.5456 31.0272z"
+                                      fill="#F7F8F8" p-id="1633"></path>
+                            </svg>
+                            <h4 class="ms-2"><a href="javascript:void(0);" id="s_a">Screening Mode</a></h4>
+                        </div>
+                        <p class="my-3">
+                            Screening Mode is able to screen a molecular dataset and detect potential frequent hitters,
+                            thus improving the credibility of experimental results and decreasing unnecessary cost.
+                        </p>
+                        <a href="{% url 'service:screening' %}" class="btn-learn-more">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Us Section -->
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title aos-init aos-animate" data-aos="fade-up">
+                <h2>Mechanism Explanation</h2>
+            </div>
+            <div class="row portfolio-container aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400"
+                 style="position: relative; height: 588px;">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 0; top: 0;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/aggregator.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>1. Colloidal aggregators</h4>
+                            <p>Aggregation starts when concentration exceeds the CAC, forming 30-600 nm aggregators.
+                                They non-specifically bind to protein surfaces, causing local unfolding and often
+                                resulting in enzyme destabilization or denaturation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 440px; top: 0;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/luciferae%20inhibitor.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>2. FLuc inhibitors</h4>
+                            <p>Due to its unique catalysis mechanism, firefly luciferase (Fluc) is commonly used in HTS
+                                bioluminescence
+                                assays, particularly those focused on studying gene expression at the transcriptional
+                                level. However, unexpected FLuc inhibitors can disrupt these HTS assays by inhibiting
+                                FLuc activity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 880px; top: 0;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/Fluorescent.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>3. Blue/Green fluorescence</h4>
+                            <p> Fluorescence occurs when a fluorophore absorbs light, exciting an electron. Used in
+                                various applications like enzyme substrates and biomolecule labels, fluorescence can
+                                interfere with related HTS assays.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 0; top: 294px;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/reactive.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>4. Reactive compounds</h4>
+                            <p>Chemical reactive compounds typically result in the chemical
+                                modification of reactive protein residues or, less frequently, the modification of
+                                nucleophilic assay reagents。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 440px; top: 294px;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/Promiscuous.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>5. Promiscuous compounds</h4>
+                            <p> Promiscuous compounds refer to compounds that specifically bind to different
+                                macromolecular targets. These multiple interactions may include unintended targets,
+                                thus
+                                triggering adverse reactions and other safety issues.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app"
+                     style="position: absolute; left: 880px; top: 294px;">
+                    <div class="portfolio-wrap">
+                        <img src="/static/explanation/img/Other.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>6. Other assay interferences</h4>
+                            <p>Alpha-screen, FRET, TR-FRET, absorbance artifacts are included.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Department Section ======= -->
+    <section id="departments" class="departments section-bg highlight-area">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title"><h2>Highlights</h2></div>
+
+            <div class="container">
+                <div class="row mt-5 gx-5">
+                    <div class="col-md-8">
+                        <div class="media-body mt-60">
+                            <h5 class="mt-0">
+                                <svg t="1701221381011" class="icon" viewBox="0 0 1203 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="2989" width="36" height="36">
+                                    <path
+                                            d="M800.0256 393.4208C628.7872 131.7888 405.12-28.8256 289.28 44.2112c-116.4032 73.3952-60.416 340.4032 110.976 602.2912 171.264 261.632 394.9312 422.272 510.7712 349.2352 116.3776-73.3952 60.416-340.4288-111.0016-602.3168z m-356.9408 225.0496C286.208 378.7776 235.8272 138.4192 316.5696 87.552c81.3056-51.2768 283.5712 93.9776 440.6272 333.9264 156.8768 239.6928 207.2576 480.0512 126.5152 530.944-81.28 51.2768-283.5712-93.952-440.6272-333.9264z"
+                                            fill="#666666" p-id="2990"></path>
+                                    <path
+                                            d="M800.0256 646.528c171.4176-261.888 227.3792-528.9216 111.0016-602.3168C795.1872-28.8256 571.4944 131.7888 400.256 393.4208 228.8384 655.3088 172.8768 922.368 289.28 995.7376c115.84 73.0368 339.5072-87.5776 510.7456-349.2096z m-42.8288-28.0576c-157.056 239.9744-359.3216 385.2032-440.6272 333.952-80.7424-50.9184-30.3616-291.2512 126.5152-530.944C600.1408 181.504 802.432 36.2752 883.712 87.5264c80.7424 50.8928 30.3616 291.2512-126.5152 530.944z"
+                                            fill="#666666" p-id="2991"></path>
+                                    <path
+                                            d="M608.9472 766.976c323.2512 0 586.752-98.4576 586.752-235.264 0-136.7552-263.5008-235.2128-586.752-235.2128-323.2256 0-586.752 98.4576-586.752 235.2384s263.5264 235.2384 586.752 235.2384z m0-51.2c-296.576 0-535.552-89.2672-535.552-184.064 0-94.72 238.976-184.0128 535.552-184.0128 296.6016 0 535.552 89.2672 535.552 184.0384s-238.9504 184.0384-535.552 184.0384z"
+                                            fill="#666666" p-id="2992"></path>
+                                    <path
+                                            d="M376.9088 81.3824a75.2128 73.8304 0 1 0 150.4256 0 75.2128 73.8304 0 1 0-150.4256 0Z"
+                                            fill="#19619F" p-id="2993"></path>
+                                    <path
+                                            d="M998.6304 412.8768a75.2128 73.8304 0 1 0 150.4256 0 75.2128 73.8304 0 1 0-150.4256 0Z"
+                                            fill="#19619F" p-id="2994"></path>
+                                    <path
+                                            d="M412.7232 930.176a75.2128 73.8304 0 1 0 150.4256 0 75.2128 73.8304 0 1 0-150.4256 0Z"
+                                            fill="#004395" p-id="2995"></path>
+                                    <path
+                                            d="M412.7232 930.176a75.2128 73.8304 0 1 0 150.4256 0 75.2128 73.8304 0 1 0-150.4256 0Z"
+                                            fill="#19619F" p-id="2996"></path>
+                                    <path
+                                            d="M618.8288 645.0176c63.36 0 114.9184-50.5856 114.9184-113.2544 0-62.6688-51.5584-113.28-114.944-113.28-63.3344 0-114.8928 50.6112-114.8928 113.28 0 62.6688 51.5584 113.2544 114.9184 113.2544z m0-51.2c-35.328 0-63.744-27.904-63.744-62.0544 0-34.176 28.416-62.08 63.744-62.08 35.3024 0 63.7184 27.904 63.7184 62.08 0 34.176-28.416 62.0544-63.744 62.0544z"
+                                            fill="#19619F" p-id="2997"></path>
+                                </svg>
+                                High-Quality Data with Clear Mechanisms
+                            </h5>
+                            <p class="disc-text">
+                                ChemFH is constructed on a dataset of over 810,000 high-quality compounds, spanning
+                                seven frequent hitter mechanisms. Sourced from literature and databases, these compounds
+                                contribute to the dataset. Clearly defining these frequent hitter mechanisms helps
+                                identify false positives misclassified as active compounds in virtual screening more
+                                accurately.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <img src="{% static 'home/img/feature_1.png' %}" alt="" style="max-width: 320px;">
+                    </div>
+                </div>
+                <div class="row mt-5 gx-5">
+                    <div class="col-md-8">
+                        <div class="media-body mt-20">
+                            <h5 class="mt-0">
+                                <svg t="1701221452742" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="5089" width="36" height="36">
+                                    <path d="M512.04 94.87v416.18l351.9 202.31-7.49-419.65L512.04 94.87z" fill="#279ACC"
+                                          p-id="5090"></path>
+                                    <path
+                                            d="M512 940.58a31.9 31.9 0 0 1-31.9-31.89V529.47L151.68 339.78a31.9 31.9 0 1 1 31.89-55.25L512 474.22l328.5-189.69 31.9 55.25-328.47 189.69v379.22A31.89 31.89 0 0 1 512 940.58z"
+                                            fill="#303030" p-id="5091"></path>
+                                    <path
+                                            d="M513.43 952.56L131 731.78V290.22L513.43 69.44l382.41 220.78v441.56zM194.83 695l318.6 183.94L832 695V327.05L513.43 143.11l-318.6 183.94z"
+                                            fill="#303030" p-id="5092"></path>
+                                    <path
+                                            d="M163 745.26a31.9 31.9 0 0 1-16-59.5l349-202.31a31.9 31.9 0 1 1 32 55.2L178.93 741a31.75 31.75 0 0 1-15.93 4.26z"
+                                            fill="#303030" p-id="5093"></path>
+                                </svg>
+                                Robust and Accurate Multi-Task DMPNN Models
+                            </h5>
+                            <p class="disc-text">
+                                ChemFH utilizes the DMPNN framework, enabling message passing by fusing vectors of
+                                neighboring bonds in the molecular graph to enhance message aggregation and updating.
+                                Furthermore, the integration of molecular graph vectors with molecular descriptors
+                                significantly improves the model's performance and robustness.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <img src="{% static 'home/img/feature_2.png' %}" alt="" style="max-width: 320px;">
+                    </div>
+                </div>
+                <div class="row mt-5 gx-5">
+                    <div class="col-md-8">
+                        <div class="media-body mt-20">
+                            <h5 class="mt-0">
+                                <svg t="1701221823427" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="8110"
+                                     data-spm-anchor-id="a313x.search_index.0.i5.f3193a81kYVunL" width="36" height="36">
+                                    <path
+                                            d="M469.1 181.4l-1.7 1.7c-148.8 19.1-267 137.5-286.6 287.3l-1.7 1.7-38.6 5.7v73l38.4 4.8 1.7 1.7c19.2 151.4 138.9 271 289.4 289.1l1.7 1.7 5.7 39.1h72.5l4.9-40 1.7-1.7c147.8-21 264.1-140.1 282.4-289.6l1.7-1.7 43.2-6.4v-73l-43.9-5.5-1.7-1.7c-20.6-147.5-136.7-264-283.2-284.2l-1.7-1.7-6.3-43.4h-72.5l-5.4 43.1zM145.8 436C176.7 291.4 289 178.6 432.5 147.9l2-16.1c2.4-19.4 18.7-33.9 38.1-33.9h75.9c19.1 0 35.2 14.1 38 33l2.5 17.5c141.3 31.2 251.9 142 283.7 284.1l17.7 2.2c19.2 2.4 33.7 18.9 33.7 38.4v76.5c0 19.2-14 35.5-32.8 38.3l-17.2 2.5c-29.6 144.2-140.2 257.6-282.8 290l-1.7 13.6c-2.4 19.4-18.7 33.9-38.1 33.9h-75.9c-19 0-35.2-14.1-38-33l-1.9-12.7C290.6 852.8 176 738.4 145.5 592.5l-11.8-1.5c-19.2-2.4-33.7-18.9-33.7-38.4v-76.5c0-19.2 14-35.5 32.8-38.3l13-1.8z m0 0"
+                                            fill="#707070" p-id="8111"
+                                            data-spm-anchor-id="a313x.search_index.0.i6.f3193a81kYVunL"
+                                            class=""></path>
+                                    <path
+                                            d="M512.1 790.2c-84.3 0-163.1-38.8-215-105.4-37.9-48.5-58.4-108.4-58.3-170 0-51.6 14.2-101.5 40.9-145 49.8-81.1 137.8-130.4 232.4-130.4 94.8 0 182 49.1 232 129.7 27.1 43.7 41.4 94.2 41.3 145.7 0 62.2-20.6 121.8-58.6 170.4-51.7 66.4-130.9 105.1-214.7 105z m0-39.3c72.2 0 139.6-33.1 184.1-90 32.6-41.6 50.3-93 50.2-146 0-44.5-12.2-87.5-35.4-124.8-42.8-69.2-118-111.2-198.9-111.2-81.2 0-156.6 42.2-199.2 111.8-23 37.3-35.1 80.3-35 124.3 0 53.2 17.5 104.2 50 145.7 44.2 56.9 112.2 90.3 184.2 90.2z m0 0"
+                                            fill="#707070" p-id="8112"
+                                            data-spm-anchor-id="a313x.search_index.0.i4.f3193a81kYVunL"
+                                            class=""></path>
+                                    <path
+                                            d="M473.5 592.2h-34.2l-11.1-34h-53.6l-10.9 34h-34.1l54-148.5h36.9l53 148.5z m-52.7-58.5L404 482.3c-1.3-4.2-2-8.6-2.3-12.9h-0.9c-0.4 4.3-1.2 8.5-2.6 12.6l-16.9 51.9h39.5z m102.7 6.8v51.8h-31.4V443.7h50.7c36.7 0 55 15.6 55 47 0 15.2-5.5 27.4-16.6 36.6-11.1 9.2-24.9 13.6-41.6 13.2h-16.1z m0-72.2v47.9h13.6c18.5 0 27.7-8.1 27.7-24.3 0-15.8-9.1-23.7-27.4-23.7l-13.9 0.1z m150.4 0.1h-12.7v99.2h12.7v24.6h-56.5v-24.6h12.5v-99.2h-12.5v-24.6h56.5v24.6z m0 0"
+                                            fill="#439AC9" p-id="8113"
+                                            data-spm-anchor-id="a313x.search_index.0.i8.f3193a81kYVunL"
+                                            class="selected"></path>
+                                </svg>
+                                Flexible API Interfaces and User-Friendly Interaction
+                            </h5>
+                            <p class="disc-text">
+                                Flexible API interfaces designed to fulfill the need for batch calculations on extensive
+                                datasets, allowing developers to integrate its functionality into a broader range of
+                                applications or integrations. The single-molecule and multi-molecule evaluation modules
+                                are applicable to various scenarios in drug design. The interactive interface ensures
+                                user-friendly and easy usage.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <img src="{% static 'home/img/feature_3.png' %}" alt="" style="max-width: 320px;">
+                    </div>
+                </div>
+                <div class="row mt-5 gx-5">
+                    <div class="col-md-8">
+                        <div class="media-body mt-20">
+                            <h5 class="mt-0">
+                                <svg t="1701221769172" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="4549" width="36" height="36">
+                                    <path
+                                            d="M104.88 852.13a43.114 43.114 0 0 0 0 43.11 43.096 43.096 0 0 0 37.33 21.55H889.05c23.81 0 43.11-19.3 43.11-43.11 0-9.15-2.85-17.64-7.72-24.62L805.62 643.25H225.47L104.88 852.13z"
+                                            fill="#9CD5E4" p-id="4550"></path>
+                                    <path
+                                            d="M885.39 949.56H138.55c-26.48 0-51.15-14.25-64.4-37.19-13.25-22.92-13.25-51.42 0-74.36l286.51-496.24V68.87h302.63v273.2l284 491.88c8.17 12.25 12.48 26.47 12.48 41.24-0.02 41.01-33.37 74.37-74.38 74.37zM423.16 131.38v227.14L128.28 869.26a11.864 11.864 0 0 0 0 11.84c2.11 3.67 6.04 5.95 10.27 5.95h746.67c6.7 0 12.03-5.32 12.03-11.85 0-2.48-0.71-4.76-2.11-6.78l-1.42-2.22-292.95-507.38V131.38H423.16z"
+                                            fill="#233649" p-id="4551"></path>
+                                    <path
+                                            d="M286.33 68.87h458.6v62.51h-458.6zM223.99 609.73h572.73v62.51H223.99zM550.08 178.6h56.26v50.01h-56.26zM550.08 261.48h56.26v50.01h-56.26z"
+                                            fill="#233649" p-id="4552"></path>
+                                </svg>
+                                Multiple FHs Alerts and Uncertainty Evaluation
+                            </h5>
+                            <p class="disc-text">
+                                The system employs ten types of frequent hitter alerts to aid in identifying
+                                structure-activity relationships of queried molecules, providing guidance for subsequent
+                                optimizations. Uncertainty estimate results are labeled as <span style="color: #79A1FB"
+                            >"High-confidence"</span> or
+                                <span style="color: #F07875">"Low-confidence"</span> to guide the reliability of
+                                predictions for a given molecule.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <img src="{% static 'home/img/feature_4.png' %}" alt="" style="max-width: 320px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Why Us Section -->
+
+    <div class="container text-center my-5">
+        <div class="version-lic">
+            Disclaimer: Compound structures submitted will not be released under any circumstances.<br>This work is
+            licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color: #80A2F7">Creative
+            Commons
+            Attribution-Noncommercial License</a>.
+        </div>
+    </div>
+{% endblock %}
+
+{#{% block footer %}#}
+{#    {% include 'share_layout/index_footer.html' %}#}
+{#{% endblock %}#}

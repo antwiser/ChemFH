@@ -1,0 +1,81 @@
+{% load static %}
+
+<footer class="site-footer">
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 d-flex flex-column">
+                <h6>About</h6>
+                <p class="text-justify" style="text-align: justify">
+                    The website provides a precise and efficient service for identifying frequent hitter compounds. This
+                    functionality is based on a high-quality database comprising 810,000 entries across seven distinct frequent hitter mechanisms and employs a multi-task DMPNN model framework.
+                </p>
+                <p class="copyright-text mt-auto" style="color: #D4E0EC; text-align: justify">
+                    We utilize CSRF tokens (Cookies) to safeguard against cross-site request forgery attacks, a vital security measure for our website. We assure you that we respect your privacy and do not store or share any other personal information on your device.
+                </p>
+            </div>
+
+            <div class="col-xs-6 col-md-3 d-flex flex-column">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="{% url 'home:contact' %}">Contact Us</a></li>
+                    <li><a href="http://www.scbdd.com/" target="_blank">CBDD Group</a></li>
+                    <script type="text/javascript"
+                            src="//rf.revolvermaps.com/0/0/7.js?i=5m5j0dg4igq&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;br=10&amp;sx=0"
+                            async="async"></script>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-md-3 d-flex flex-column">
+                <h6>Dev Tool</h6>
+                <table class="xtable">
+                    <tr>
+                        <td>
+                            <a href="https://www.python.org/" target="_blank">
+                                <img src="{% static 'common/footer/img/python-logo.png' %}" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://www.rdkit.org/" target="_blank">
+                                <img src="{% static 'common/footer/img/rdkit-logo.png' %}" alt="">
+                            </a>
+                        </td>
+                        {#                        <td>#}
+                        {#                            <a href="https://www.djangoproject.com/" target="_blank">#}
+                        {#                                <img src="{% static 'common/footer/img/django-logo.png' %}" alt="">#}
+                        {#                            </a>#}
+                        {#                        </td>#}
+                        <td>
+                            <a href="https://pytorch.org/" target="_blank">
+                                <img src="{% static 'common/footer/img/pytorch-logo.png' %}" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://www.rdkit.org/" target="_blank">
+                                <img src="{% static 'common/footer/img/djangoninja-logo.png' %}" alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+                <div class="mt-3 text-end">
+                    <p class="copyright-text">
+                        E-mail: <font color="white">oriental-cds@163.com</font>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="text-end">
+                    <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+                        <a href="http://www.scbdd.com/" style="color: #ffffff;text-decoration: none">Computational
+                            Biology & Drug Design
+                            Group</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,236 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'services/css/style.css' %}">
+
+<style>
+
+</style>
+
+<main class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="shadown-title d-flex flex-row align-items-center">
+                    <svg x="1637820729377" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="8892" width="28" height="28">
+                        <path d="M512 512m-448 0a448 448 0 1 0 896 0 448 448 0 1 0-896 0Z" fill="#A0B2C5"
+                              p-id="8893"></path>
+                        <path d="M256 256m32 0l448 0q32 0 32 32l0 448q0 32-32 32l-448 0q-32 0-32-32l0-448q0-32 32-32Z"
+                              fill="#F4F9FF" p-id="8894"></path>
+                        <path d="M448 614m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#3F4B58" p-id="8895"></path>
+                        <path d="M448 470m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#3F4B58" p-id="8896"></path>
+                        <path d="M592 470m12 0l104 0q12 0 12 12l0 232q0 12-12 12l-104 0q-12 0-12-12l0-232q0-12 12-12Z"
+                              fill="#3F4B58" p-id="8897"></path>
+                        <path d="M304 614m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#3F4B58" p-id="8898"></path>
+                        <path d="M304 470m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#3F4B58" p-id="8899"></path>
+                        <path d="M304 298m16 0l384 0q16 0 16 16l0 96q0 16-16 16l-384 0q-16 0-16-16l0-96q0-16 16-16Z"
+                              fill="#1D496A" p-id="8900"></path>
+                        <path d="M304 304m16 0l384 0q16 0 16 16l0 96q0 16-16 16l-384 0q-16 0-16-16l0-96q0-16 16-16Z"
+                              fill="#3976A4" p-id="8901"></path>
+                        <path d="M448 608m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#617283" p-id="8902"></path>
+                        <path d="M474 658h60v12h-60z" fill="#F3F5F6" p-id="8903"></path>
+                        <path d="M504 688m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#F3F5F6" p-id="8904"></path>
+                        <path d="M504 640m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#F3F5F6" p-id="8905"></path>
+                        <path d="M448 464m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#617283" p-id="8906"></path>
+                        <path d="M474 514h60v12h-60z" fill="#F3F5F6" p-id="8907"></path>
+                        <path d="M592 464m12 0l104 0q12 0 12 12l0 232q0 12-12 12l-104 0q-12 0-12-12l0-232q0-12 12-12Z"
+                              fill="#617283" p-id="8908"></path>
+                        <path d="M626 604h60v12h-60zM626 568h60v12h-60z" fill="#F3F5F6" p-id="8909"></path>
+                        <path d="M304 608m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#617283" p-id="8910"></path>
+                        <path d="M343.03 638.544l42.426 42.427-8.485 8.485-42.427-42.427z" fill="#F3F5F6"
+                              p-id="8911"></path>
+                        <path d="M376.97 638.544l8.486 8.485-42.427 42.427-8.485-8.485z" fill="#F3F5F6"
+                              p-id="8912"></path>
+                        <path d="M304 464m12 0l88 0q12 0 12 12l0 88q0 12-12 12l-88 0q-12 0-12-12l0-88q0-12 12-12Z"
+                              fill="#617283" p-id="8913"></path>
+                        <path d="M330 514h60v12h-60z" fill="#F3F5F6" p-id="8914"></path>
+                        <path d="M354 490h12v60h-12z" fill="#F3F5F6" p-id="8915"></path>
+                    </svg>
+                    <div style="padding: 10px;">Calculation</div>
+                </div>
+                <div id="evaluation-container">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home-tab-pane" type="button" role="tab"
+                                    aria-controls="home-tab-pane" aria-selected="true">Enter a single SMILES string
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                    aria-controls="profile-tab-pane" aria-selected="false">Draw a molecule
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                             aria-labelledby="home-tab"
+                             tabindex="0">
+                            <form action="{% url 'service:evaluationCal' %}" method="post" id="form1"
+                                  class="border p-3 border-top-0 mb-3">
+                                {% csrf_token %}
+                                {% if message %}
+                                    <div class="alert alert-warning">{{ message }}</div>
+                                {% endif %}
+                                <div class="form-group row align-items-center pl-4">
+                                    <label for="smiles"
+                                           class="col-lg-2 col-md-2 col-xl-2 col-sm-12 col-xs-12 col-form-label text-end"
+                                           style="font-size: 1.2rem;">SMILES
+                                    </label>
+                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                                        <input type="text" class="form-control" id="smiles" name="smiles"
+                                               value="{% if smiles %}{{ smiles }}{% endif %}" required>
+                                        <input type="hidden" id="method" value="1" name="method">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                                        <button type="button" class="btn btn-primary align-middle"
+                                                onclick="$('#smiles').val('O=S1(=O)OC(C2=CC=C(O)C=C2)(C2=CC=C(O)C=C2)C2=C1C=CC=C2')">
+                                            Example
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row buttons text-center mt-4">
+                                    <div class="col-6">
+                                        <button class="btn btn-danger" type="button" aria-label="Reset" value="Reset"
+                                                onclick="resetForm1()">Reset
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-success" type="button" aria-label="Submit" value="Submit"
+                                                id="submit-btn-1" onclick="submit1()">Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="alert alert-primary" type="info"
+                                 style="font-size: 1.1rem;font-family: 'Poppins',serif;">
+                                <p style="font-size: 1.2rem;">
+                                    <i class="fas fa-info-circle"></i> Tips:
+                                </p>
+                                <ul class="m-0">
+                                    <li class="mb-3">In case of errors, users should verify the accuracy of the SMILES
+                                        before
+                                        submission.
+                                    </li>
+                                    <li>Molecules composed of more than 128 atoms are not recommended for evaluation.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade text-center" id="profile-tab-pane" role="tabpanel"
+                             aria-labelledby="profile-tab"
+                             tabindex="0">
+                            <form action="{% url 'service:evaluationCal' %}" method="post" id="form2"
+                                  class="border p-3 border-top-0 text-center">
+                                {% csrf_token %}
+
+                                {% if message %}
+                                    <div class="alert alert-warning">{{ message }}</div>
+                                {% endif %}
+                                {#                    <canvas id="editor"></canvas>#}
+                                <div id="ketcherContainer" class="container">
+                                    <iframe src="{% static 'common/ketcher-standalone-v2.6.4/standalone/index.html' %}"
+                                            frameborder="0" width="100%" height="640" id="ketcher"></iframe>
+                                </div>
+                                <div class="mt-3 d-flex justify-content-around">
+                                    <input type="hidden" id="mol_input" name="mol" value="">
+                                    <input type="hidden" id="method" value="2" name="method">
+                                    <button class="btn btn-primary" type="button" aria-label="Submit" value="Submit"
+                                            id="submit-btn-2" onclick="loadExample()">Load Example
+                                    </button>
+                                    <button class="btn btn-success" type="button" aria-label="Submit" value="Submit"
+                                            id="submit-btn-2" onclick="submit2()">Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="modal" tabindex="-1" id="loading-btn">
+    <div class="modal-dialog d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="modal-content" style="background: none; border: none;">
+            <div class="modal-body text-center" style="border: none;">
+                <div class="load">
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                </div>
+                <h2 style="color: white">Please Wait...</h2></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    {#var ketcher = document.getElementById('ketcher').contentWindow.ketcher;#}
+    var ketcherFrame = document.getElementById('ketcher');
+    var ketcher = null;
+    var myTab = document.getElementById('myTab');
+
+    myTab.addEventListener('shown.bs.tab', function (event) {
+        // event.target 是激活的标签页
+        // event.relatedTarget 是之前激活的标签页
+        let tabContext = event.target.id;
+        if (tabContext === 'profile-tab') {
+            var savedData = sessionStorage.getItem('SMILES');
+            if (savedData) {
+                console.log(savedData);
+                ketcher.setMolecule(savedData);
+            }
+        }
+    });
+
+    function loadExample() {
+        ketcher.setMolecule('O=S1(=O)OC(C2=CC=C(O)C=C2)(C2=CC=C(O)C=C2)C2=C1C=CC=C2');
+    }
+
+    function showmodal() {
+        const myModal = new bootstrap.Modal('#loading-btn', {
+            keyboard: false,
+            backdrop: 'static',
+        })
+        myModal.show()
+    }
+
+    function resetForm1() {
+        $(":input", "#form1").not(":button", ":reset", "hidden", "submit").val("").removeAttr("checked").removeAttr("selected");
+    }
+
+    function submit1() {
+        document.getElementById('form1').submit();
+        showmodal();
+    }
+
+    function saveData(data) {
+        sessionStorage.setItem('SMILES', data);
+    }
+
+    // 页面加载时尝试恢复数据
+    window.onload = function () {
+        if ('contentDocument' in ketcherFrame)
+            ketcher = ketcherFrame.contentWindow.ketcher;
+        else // IE7
+            ketcher = document.frames['ketcher'].window.ketcher;
+    }
+
+    async function submit2() {
+        showmodal();
+        let ketcher = document.getElementById('ketcher').contentWindow.ketcher;
+        let smiles = await ketcher.getSmiles();
+        saveData(smiles);
+        $('#mol_input').attr('value', smiles);
+        document.getElementById('form2').submit();
+    }
+</script>

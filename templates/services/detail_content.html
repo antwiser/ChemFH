@@ -1,0 +1,324 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'services/css/result_style.css' %}"/>
+<link rel="stylesheet" href="{% static 'common/DataTables/DataTables-1.13.8/css/jquery.dataTables.css' %}">
+<link rel="stylesheet" href="{% static 'services/css/style.css' %}">
+{#<link rel="stylesheet" href="{% static 'common/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css' %}">#}
+
+{#<script src="{% static 'common/DataTables/pdfmake-0.2.7/pdfmake.js' %}"></script>#}
+{#<script src="{% static 'common/DataTables/pdfmake-0.2.7/vfs_fonts.js' %}"></script>#}
+
+<script src="{% static 'common/DataTables/DataTables-1.13.8/js/jquery.dataTables.js' %}"></script>
+{#<script src="{% static 'common/DataTables/Buttons-2.4.2/js/dataTables.buttons.js' %}"></script>#}
+{#<script src="{% static 'common/DataTables/Buttons-2.4.2/js/buttons.html5.js' %}"></script>#}
+{#<script src="{% static 'services/js/echarts.min.js' %}"></script>#}
+<script src="{% static 'services/chartjs/chart.umd.js' %}"></script>
+<div class="main-content container-xl mt-2">
+    <div class="p-3" role="alert" style="word-break:break-all;border: 1px solid rgb(44,63,88)">
+        <div class="py-3 d-flex align-items-center justify-content-between">
+            <div>
+                <span class="d-flex align-items-center" style="font-weight: 600">{{ smiles }} <button
+                        class="structure-btn btn ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">2D
+                    structure</button></span>
+                <div class="modal fade" id="exampleModal" tabindex="-1"
+                     aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog  d-flex justify-content-center align-items-center"
+                         style="height: 100%">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                {{ structure|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if download %}
+                <div>
+                    <a href="javascript:void(0);" style="text-decoration: none;" class="" id="download_csv">
+                        <button type="button" class="btn btn-outline-success">
+                            <i class="fas fa-download"></i>
+                            Download as CSV
+                        </button>
+                    </a>
+                    <a href="javascript:void(0);" style="text-decoration: none;" class="" id="download_pdf">
+                        <button type="button" class="btn btn-outline-danger">
+                            <i class="fas fa-download"></i>
+                            Download as PDF
+                        </button>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="resultPage mt-2" id="resultPage">
+        <div class="row gx-3 gy-2 mb-1 mt-2">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <canvas id="main" class="pe-5" style="max-height: 100%"></canvas>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="sub-title" style="">Frequent Hitter Rules</div>
+                <table class="table table-bordered table-hover table-striped" id="ruleTable">
+                    <tbody>
+                    {% for _, item in other_rules.iterrows %}
+                        <tr>
+                            <td>{{ item.mechanism }}</td>
+                            <td class="text-center">{{ item.cnt_match }}</td>
+                            <td class="text-center">
+                                {% if item.cnt_match != 0 %}
+                                    <i class="fas fa-exclamation-triangle"
+                                       data-tippy-content="click to see the alerts structure" style="color:red"
+                                       data-bs-toggle="modal" data-bs-target="#rule-{{ forloop.counter0 }}"></i>
+
+                                    <div class="modal fade" id="rule-{{ forloop.counter0 }}" tabindex="-1"
+                                         aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModal2Label">Structure
+                                                        View</h1>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    {{ item.img_match|safe }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-info-circle" data-tippy-content="{{ item.explanation }}"></i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="sub-title mb-3">Frequent Hitter Mechanisms</div>
+        <table id="myTable" class="display mb-3">
+            <thead>
+            <tr>
+                <th>Mechanisms</th>
+                <th class="text-center">Pred. Score</th>
+                <th class="text-center">Decision</th>
+                {#                <th class="text-center">Attention</th>#}
+                <th class="text-center">Uncertainty</th>
+                <th class="text-center">Num. of Substructure</th>
+                <th class="text-center">Substructure</th>
+                {#                <th class="text-center"></th>#}
+            </tr>
+            </thead>
+            <tbody>
+            {% for _, item in result.iterrows %}
+                <tr>
+                    <td>
+                        {{ item.mechanism }} <i class="fas fa-info-circle"
+                                                data-tippy-content="{{ item.explanation }}"></i>
+                    </td>
+                    <td class="text-center">
+                        {{ item.score|floatformat:3 }}
+                    </td>
+                    <td class="text-center">
+                        {% if item.decision %}
+                            <i class="fas fa-circle text-success"></i>
+                        {% else %}
+                            <i class="fas fa-circle text-danger"></i>
+                        {% endif %}
+                    </td>
+                    <td class="text-center">
+                        {% if item.uncertainty %}
+                            <span class="badge rounded-pill" style="background-color: #79A1FB">High-confidence</span>
+                        {% else %}
+                            <span class="badge rounded-pill" style="background-color: #F07875">Low-confidence</span>
+                        {% endif %}
+                    </td>
+                    <td class="text-center">{{ item.cnt }}</td>
+                    <td class="text-center">
+                        {% if item.cnt != 0 %}
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal-{{ forloop.counter0 }}">View
+                            </button>
+                        {% else %}
+                            -
+                        {% endif %}
+                        <div class="modal fade" id="exampleModal-{{ forloop.counter0 }}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        {{ item.svg|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    {#                    <td class="text-center">#}
+                    {#                        <i class="fas fa-info-circle" data-tippy-content="{{ item.explanation }}"></i>#}
+                    {#                    </td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="alert alert-primary mb-3" type="info"
+         style="font-size: 1.1rem;font-family: 'Poppins',serif;">
+        <p style="font-size: 1.2rem;" class="mb-0">
+            <i class="fas fa-info-circle"></i> Tips:
+        </p>
+        <ul class="m-0">
+            <li>
+                The corresponding relationships of the two labels are as follows: <i class="fas fa-circle
+                text-success"></i> <span
+                    class="text-success">Pass</span> (Non-FH compound);
+                <i class="fas fa-circle text-danger"></i> <span class="text-danger">Reject</span> (FH compound)
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="loading-btn">
+    <div class="modal-dialog d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="modal-content" style="background: none; border: none;">
+            <div class="modal-body text-center" style="border: none;">
+                <div class="load">
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                </div>
+                <h2 style="color: white">Please Wait...</h2></div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'common/js/popper.min.js' %}"></script>
+<script src="{% static 'common/js/tippy-bundle.umd.min.js' %}"></script>
+
+<script>
+    tippy('[data-tippy-content]', {
+        maxWidth: 'none',
+        role: 'tooltip',
+        allowHTML: true,
+    });
+
+    function randerChart() {
+        {#Chart.defaults.font.size = 16;#}
+        const ctx = document.getElementById('main');
+        let labels = {{ mechanisms|safe }};
+        let values = {{ score|safe }};
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Predicted Score',
+                    data: values,
+                    borderColor: '#416F9D',
+                    backgroundColor: 'rgba(66,78,104, 0.1)',
+                    pointRadius: 5,
+                },
+            ]
+        };
+        Chart.defaults.borderColor = '#2C3F58';
+        new Chart(ctx, {
+            type: 'radar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                },
+                scales: {
+                    r: {
+                        beginAtZero: false, //從 0 開始計算
+                        max: 1, //最大數值
+                        ticks: {
+                            stepSize: 0.2,
+                        },
+                        pointLabels: {
+                            color: '#000',
+                            font: {
+                                size: 16,
+                            },
+                        },
+                    }
+                }
+            },
+        });
+    }
+
+    $(document).ready(function () {
+        randerChart();
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            paging: false,
+            ordering: false,
+            searching: false,
+            info: false,
+            {#buttons: [#}
+            {#    'copyHtml5',#}
+            {#    'csvHtml5',#}
+            {#    'pdfHtml5',#}
+            {#]#}
+        });
+
+    });
+
+    $('#download_csv').click(function () {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'service:downcsv' %}",
+            data: {'taskid': "{{ taskid }}"},
+            beforeSend: function (xhr, setting) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}")
+            },
+            success: function (result) {
+                var blob = new Blob([result]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "ChemFH_result.csv";
+                link.click();
+            },
+            error: function (result) {
+            }
+        });
+    })
+
+    const myModal = new bootstrap.Modal('#loading-btn', {
+        keyboard: false,
+        backdrop: 'static',
+    })
+
+    function showmodal() {
+        myModal.show()
+    }
+
+    function closemodal() {
+        myModal.hide()
+    }
+
+    $('#download_pdf').click(function () {
+        showmodal();
+        $.ajax({
+            type: "POST",
+            url: "{% url 'service:downpdf' %}",
+            data: {'taskid': "{{ taskid }}"},
+            beforeSend: function (xhr, setting) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}")
+            },
+            success: function (result) {
+                var blob = new Blob([result]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "ChemFH_result.pdf";
+                link.click();
+                closemodal();
+            },
+            error: function (result) {
+            }
+        });
+    });
+</script>

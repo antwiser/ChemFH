@@ -1,0 +1,44 @@
+:root {
+    --content-max-width: 80em;
+    --search-margin: 1.5rem 0 0;
+    /*--zoomimage-overlay-background: rgb(256, 256, 256);*/
+}
+
+/* Content
+============================================================================= */
+:root {
+    --heading-h2-border-style: none;
+}
+
+/* Sidebar
+============================================================================= */
+:root {
+    --sidebar-width: 22rem;
+}
+
+.content {
+    text-align: justify;
+}
+
+.markdown-section a.anchor:hover {
+    text-decoration: none;
+}
+
+.app-name-link img {
+    max-height: 40px;
+    max-width: 40px;
+}
+
+.sidebar-nav > ul > li {
+    font-weight: 700;
+    margin: 0;
+    list-style: none;
+    color: #364149;
+}
+
+.markdown-section img {
+    display: block;
+    /*max-width: 100%;*/
+    margin: 0 auto;
+    text-align: center;
+}

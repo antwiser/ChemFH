@@ -1,0 +1,8 @@
+ID	SMARTS
+841279702	*-c1n[nH]c(=S)n1*
+2966479832	*CNC(=O)CSc1nnc(N*)s1
+1646430790	*oc1cc(O)ccc1*
+209847479	*Nc1nc(-c2ccccn2)cs1
+2982610395	*C=C1C=Cc2ccccc21
+2961941695	*C(=*)Nc1nc(-c2ccccn2)cs1
+2621552859	*Nc1nc(N*)c2cc(OC)c(OC)cc2n1

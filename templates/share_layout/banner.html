@@ -1,0 +1,110 @@
+{% load static %}
+
+<div class="container">
+    <section id="hero" class="d-flex align-items-center justified">
+        <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-xl-6 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-delay="150">
+                    <h1>ChemFH</h1>
+                    <h2>ChemFH (Chemical Frequent Hitter) is an integrated online platform for the identification of
+                        potential frequent hitters, including colloidal aggregate, firefly luciferase reporter enzyme
+                        inhibition, fluorescence, chemical reactivity and promiscuity. Based on the collection of a
+                        large and high-quality database and the application of Graph Neural Networks architectures, the
+                        prediction models implemented in ChemFH are able to achieve reliable detection capability of
+                        frequent hitters, thus improving the efficiency of drug R&D.</h2>
+                </div>
+                <div class="col-xl-6 col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left"
+                     data-aos-delay="150">
+                    <img src="{% static 'home/img/Website_Figure2.png' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{#<!-- ======= Hero Section ======= -->#}
+{#<section id="hero" class="d-flex align-items-center" style="padding-top: 75px">#}
+{#    <div class="container-fluid" style="width: 86%;" id="banner-container-fluid">#}
+{#        <div class="row d-flex justify-content-around align-items-center" style="height: 100%;">#}
+{#            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"#}
+{#                 data-aos="fade-up" data-aos-delay="100" style="font-weight: 700;font-size: 1.25rem;"#}
+{#                 id="container-left">#}
+{#                <h1 class="display-4 font-weight-bold text-center">ChemFH</h1>#}
+{#                <p style="text-align: justify;font-weight: 350" class="lead">ChemFH (Chemical Frequent Hitter) is an#}
+{#                    integrated online platform for#}
+{#                    the#}
+{#                    identification of potential frequent hitters, including colloidal aggregate, firefly luciferase#}
+{#                    reporter enzyme inhibition, fluorescence, chemical reactivity and promiscuity. Based on the#}
+{#                    collection of a large and high-quality database and the application of Graph Neural Networks#}
+{#                    architectures, the prediction models implemented in ChemFH are able to achieve reliable#}
+{#                    detection#}
+{#                    capability of frequent hitters, thus improving the efficiency of drug R&D.</p>#}
+{#            </div>#}
+{#            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 order-1 order-lg-2 hero-img" data-aos="zoom-in"#}
+{#                 data-aos-delay="100"#}
+{#                 id="container-right">#}
+{#                <img src="{% static 'home/img/Website_Figure2.png' %}" class="img-fluid" alt="">#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section><!-- End Hero -->#}
+
+
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        let container = $('#banner-container-fluid');#}
+{#        let screen_height = $(window).height() - 75;#}
+{#        let left = $('#container-left').outerHeight();#}
+{#        let right = $('#container-right').outerHeight();#}
+{#        if ($(window).outerWidth() < 992) {#}
+{# 上下结构 #}
+{#container.css('height', left + right);#}
+{#            if (left + right > screen_height) {#}
+{#                container.css('height', left + right);#}
+{#             } else {#}
+{#                container.css('height', screen_height);#}
+{#             }#}
+{#        } else {#}
+{# 左右结构 #}
+{#            if (left > screen_height || right > screen_height) {#}
+{#                if (left > right) {#}
+{#                    container.css('height', left);#}
+{#                } else {#}
+{#                    container.css('height', right);#}
+{#                }#}
+{#            } else {#}
+{#                container.css('height', screen_height);#}
+{#            }#}
+{#        }#}
+{#    });#}
+{##}
+{#    $(window).resize(function () {#}
+{#        let container = $('#banner-container-fluid');#}
+{#        let screen_height = $(window).height() - 75;#}
+{#        let left = $('#container-left').outerHeight();#}
+{#        let right = $('#container-right').outerHeight();#}
+{#        if ($(window).outerWidth() < 992) {#}
+{# 上下结构 #}
+{#container.css('height', left + right);#}
+{#            if (left + right > screen_height) {#}
+{#                container.css('height', left + right);#}
+{#             } else {#}
+{#                container.css('height', screen_height);#}
+{#             }#}
+{#        } else {#}
+{# 左右结构 #}
+{#            if (left > screen_height || right > screen_height) {#}
+{#                if (left > right) {#}
+{#                    container.css('height', left);#}
+{#                } else {#}
+{#                    container.css('height', right);#}
+{#                }#}
+{#            } else {#}
+{#                container.css('height', screen_height);#}
+{#            }#}
+{#        }#}
+{#    });#}
+{##}
+{#</script>#}

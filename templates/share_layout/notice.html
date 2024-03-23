@@ -1,0 +1,32 @@
+{% load static %}
+{% if notices %}
+<link rel="stylesheet" href="{% static 'share/notice/css/style.css' %}">
+
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide carousel-vertical carousel-fade mt-2" data-ride="carousel">
+        <div class="carousel-inner m-auto">
+            {% for item in notices %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="alert alert-info mb-0" role="alert">
+                        <span class="text-danger">NOTICE</span>&emsp;{{ item.notice_text }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% if notices|length > 1 %}
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="" aria-hidden="true">
+                <i class="fas fa-angle-up text-dark"></i>
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="" aria-hidden="true">
+                <i class="fas fa-angle-down text-dark"></i>
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    {% endif %}
+    </div>
+</div>
+{% endif %}

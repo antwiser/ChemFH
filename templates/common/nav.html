@@ -1,0 +1,64 @@
+{% load static %}
+<style>
+    .box-with-border {
+        border-bottom: 1px solid #333; /* 边框样式，2px 宽度，颜色 #333 */
+        {#padding: 2px; /* 可选：增加一些内边距，使内容不紧贴边框 */#}
+    }
+
+    /* 添加阴影 */
+    .box-with-shadow {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); /* x偏移、y偏移、模糊度、颜色（rgba格式） */
+        {#padding: 2px; /* 可选：增加一些内边距，使内容不紧贴阴影 */#}
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+    }
+</style>
+<header class="header-area overlay box-with-border box-with-shadow">
+    <nav class="navbar navbar-expand-md navbar-dark" data-bs-theme="dark">
+        <div class="container">
+            <a href="{% url 'home:index' %}" class="navbar-brand d-flex justify-content-center align-items-center">
+                <img src="{% static 'favicon.ico' %}" width="45" height="45"
+                     class="d-inline-block justify-content-center align-items-center me-2" alt=""/>
+                <h1 class="">ChemFH<span>.</span></h1>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="main-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:index' %}"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="fas fa-atom"></i> Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'service:evaluation' %}">FH Evaluation</a></li>
+                            <li><a class="dropdown-item" href="{% url 'service:screening' %}">FH Screening</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:apis' %}"><i class="fas fa-robot"></i> API Tutorial</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home:documentation' %}">
+                        <i class="fas fa-hands-helping"></i> Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:publication' %}"><i class="fas fa-copy"></i> Publication</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:contact' %}"><i class="fas fa-id-card"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

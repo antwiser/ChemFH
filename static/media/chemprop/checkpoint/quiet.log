@@ -1,0 +1,103 @@
+Fold 0
+Model 0 best validation auc = 0.909483 on epoch 133
+Model 0 test auc = 0.903546
+Model 0 test Other_assay_interference auc = 0.810587
+Model 0 test Blue_fluorescence auc = 0.937192
+Model 0 test FLuc_inhibitors auc = 0.979749
+Model 0 test Promiscuous_compounds auc = 0.941367
+Model 0 test Aggregators auc = 0.933864
+Model 0 test Reactive_compounds auc = 0.999840
+Model 0 test Green_fluorescence auc = 0.722222
+Model 0 test accuracy = 0.841948
+Model 0 test Other_assay_interference accuracy = 0.728000
+Model 0 test Blue_fluorescence accuracy = 0.926622
+Model 0 test FLuc_inhibitors accuracy = 0.943579
+Model 0 test Promiscuous_compounds accuracy = 0.956422
+Model 0 test Aggregators accuracy = 0.790031
+Model 0 test Reactive_compounds accuracy = 0.999511
+Model 0 test Green_fluorescence accuracy = 0.549471
+Model 1 best validation auc = 0.910770 on epoch 164
+Model 1 test auc = 0.906044
+Model 1 test Other_assay_interference auc = 0.822815
+Model 1 test Blue_fluorescence auc = 0.940122
+Model 1 test FLuc_inhibitors auc = 0.980271
+Model 1 test Promiscuous_compounds auc = 0.942060
+Model 1 test Aggregators auc = 0.934809
+Model 1 test Reactive_compounds auc = 0.999824
+Model 1 test Green_fluorescence auc = 0.722404
+Model 1 test accuracy = 0.837779
+Model 1 test Other_assay_interference accuracy = 0.685333
+Model 1 test Blue_fluorescence accuracy = 0.918597
+Model 1 test FLuc_inhibitors accuracy = 0.955267
+Model 1 test Promiscuous_compounds accuracy = 0.960383
+Model 1 test Aggregators accuracy = 0.807544
+Model 1 test Reactive_compounds accuracy = 0.999695
+Model 1 test Green_fluorescence accuracy = 0.537632
+Model 2 best validation auc = 0.911406 on epoch 140
+Model 2 test auc = 0.908504
+Model 2 test Other_assay_interference auc = 0.839047
+Model 2 test Blue_fluorescence auc = 0.938260
+Model 2 test FLuc_inhibitors auc = 0.979806
+Model 2 test Promiscuous_compounds auc = 0.941026
+Model 2 test Aggregators auc = 0.934188
+Model 2 test Reactive_compounds auc = 0.999771
+Model 2 test Green_fluorescence auc = 0.727431
+Model 2 test accuracy = 0.838470
+Model 2 test Other_assay_interference accuracy = 0.701333
+Model 2 test Blue_fluorescence accuracy = 0.916762
+Model 2 test FLuc_inhibitors accuracy = 0.948074
+Model 2 test Promiscuous_compounds accuracy = 0.958081
+Model 2 test Aggregators accuracy = 0.788684
+Model 2 test Reactive_compounds accuracy = 0.999695
+Model 2 test Green_fluorescence accuracy = 0.556660
+Ensemble test auc = 0.914209
+Ensemble test Other_assay_interference auc = 0.839736
+Ensemble test Blue_fluorescence auc = 0.946463
+Ensemble test FLuc_inhibitors auc = 0.983582
+Ensemble test Promiscuous_compounds auc = 0.950485
+Ensemble test Aggregators auc = 0.942267
+Ensemble test Reactive_compounds auc = 0.999901
+Ensemble test Green_fluorescence auc = 0.737033
+Ensemble test accuracy = 0.844603
+Ensemble test Other_assay_interference accuracy = 0.698667
+Ensemble test Blue_fluorescence accuracy = 0.930979
+Ensemble test FLuc_inhibitors accuracy = 0.956766
+Ensemble test Promiscuous_compounds accuracy = 0.964425
+Ensemble test Aggregators accuracy = 0.807352
+Ensemble test Reactive_compounds accuracy = 0.999695
+Ensemble test Green_fluorescence accuracy = 0.554334
+1-fold cross validation
+	Seed 0 ==> test auc = 0.914209
+		Seed 0 ==> test Other_assay_interference auc = 0.839736
+		Seed 0 ==> test Blue_fluorescence auc = 0.946463
+		Seed 0 ==> test FLuc_inhibitors auc = 0.983582
+		Seed 0 ==> test Promiscuous_compounds auc = 0.950485
+		Seed 0 ==> test Aggregators auc = 0.942267
+		Seed 0 ==> test Reactive_compounds auc = 0.999901
+		Seed 0 ==> test Green_fluorescence auc = 0.737033
+	Seed 0 ==> test accuracy = 0.844603
+		Seed 0 ==> test Other_assay_interference accuracy = 0.698667
+		Seed 0 ==> test Blue_fluorescence accuracy = 0.930979
+		Seed 0 ==> test FLuc_inhibitors accuracy = 0.956766
+		Seed 0 ==> test Promiscuous_compounds accuracy = 0.964425
+		Seed 0 ==> test Aggregators accuracy = 0.807352
+		Seed 0 ==> test Reactive_compounds accuracy = 0.999695
+		Seed 0 ==> test Green_fluorescence accuracy = 0.554334
+Overall test auc = 0.914209 +/- 0.000000
+	Overall test Other_assay_interference auc = 0.839736 +/- 0.000000
+	Overall test Blue_fluorescence auc = 0.946463 +/- 0.000000
+	Overall test FLuc_inhibitors auc = 0.983582 +/- 0.000000
+	Overall test Promiscuous_compounds auc = 0.950485 +/- 0.000000
+	Overall test Aggregators auc = 0.942267 +/- 0.000000
+	Overall test Reactive_compounds auc = 0.999901 +/- 0.000000
+	Overall test Green_fluorescence auc = 0.737033 +/- 0.000000
+Overall test accuracy = 0.844603 +/- 0.000000
+	Overall test Other_assay_interference accuracy = 0.698667 +/- 0.000000
+	Overall test Blue_fluorescence accuracy = 0.930979 +/- 0.000000
+	Overall test FLuc_inhibitors accuracy = 0.956766 +/- 0.000000
+	Overall test Promiscuous_compounds accuracy = 0.964425 +/- 0.000000
+	Overall test Aggregators accuracy = 0.807352 +/- 0.000000
+	Overall test Reactive_compounds accuracy = 0.999695 +/- 0.000000
+	Overall test Green_fluorescence accuracy = 0.554334 +/- 0.000000
+Elapsed time = 1 day, 7:26:20
+Fold 0

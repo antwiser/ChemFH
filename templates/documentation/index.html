@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChemFH</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="Description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{% static 'docs/css/theme-simple.css' %}">
+    <link rel="stylesheet" href="{% static 'apis/theme-custom.css' %}"/>
+    <link href="{% static 'common/bootstrap-5.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'common/bootstrap_icon/bootstrap-icons.css' %}"/>
+    <link rel="stylesheet" href="{% static 'docs/css/katex.min.css' %}"/>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .content-img {
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            width: 50%;
+        }
+
+        .content-img-1 {
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            width: 70%;
+        }
+        
+        .low-content {
+            color: #F07875;
+        }
+        
+        .high-content {
+            color: #79A1FB;
+        }
+
+        .table-wrapper table thead {
+            background-color: #404D69;
+        }
+
+        .table-wrapper table thead th {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<nav>
+    <a href="{% url 'home:index' %}">🏠 Home</a>
+</nav>
+<div id="app">
+    Loading...
+</div>
+<script>
+    window.$docsify = {
+        name: 'ChemFH Documentation',
+        loadSidebar: true,
+        subMaxLevel: 2,
+        loadNavbar: true,
+        auto2top: true,
+        nameLink: '#',
+        themeColor: '#3F51B5',
+        mergeNavbar: true,
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        externalLinkTarget: '_self', // default: '_blank'
+        cornerExternalLinkTarget: '_self', // default: '_blank'
+        themeable: {
+            readyTransition: true, // default
+            responsiveTables: true  // default
+        },
+        plugins: [
+            function (hook) {
+                var footer = [
+                    '<footer style="text-align: center;margin-top: 50px;">',
+                    '<span> Made with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 ' +
+                    '24" fill="red" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' +
+                    'class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5' +
+                    '.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> ' +
+                    'by <a href="http://www.scbdd.com/" target="_blank">Computational Biology & Drug Design Group</a>  &copy; 2020 </span>',
+                    '</footer>'
+                ].join('');
+                hook.afterEach(function (html) {
+                    return html + footer;
+                });
+            },
+        ],
+        search: {
+            noData: 'No Results!',
+            paths: 'auto',
+            placeholder: 'Search',
+            depth: 2,
+            hideOtherSidebarContent: false,
+            namespace: 'ChemFH Manual',
+        },
+        markdown: {
+            renderer: {
+                code: function (code, lang) {
+                    if (lang === "mermaid") {
+                        return (
+                            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+                        );
+                    }
+                    return this.origin.code.apply(this, arguments);
+                }
+            }
+        },
+    }
+</script>
+<!-- Docsify v4 -->
+<script src="{% static 'docs/js/docsify@4.js' %}"></script>
+<script src="{% static 'apis/external-script.min.js' %}"></script>
+<script src="{% static 'docs/js/docsify-themeable.min.js' %}"></script>
+<script src="{% static 'docs/js/search.js' %}"></script>
+<script src="{% static 'docs/js/docsify-copy-code.min.js' %}"></script>
+<script src="{% static 'docs/js/katex.min.js' %}"></script>
+<script src="{% static 'docs/js/marked@4.js' %}"></script>
+<script src="{% static 'docs/js/docsify-katex.js' %}"></script>
+</body>
+
+</html>
+
+

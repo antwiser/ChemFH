@@ -1,0 +1,52 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'publication/css/style.css' %}">
+<main class="main-content container">
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume mt-0 pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <h3 class="resume-title mt-0">References <span class="text-danger" style="font-size: 1rem">~ 6,000
+                        citations</span>
+                    </h3>
+                    {% for index, item in datas.iterrows %}
+                        <div class="resume-item">
+                            <div class="d-flex">
+                                <div class="">
+                                    <img class="me-3 img-fluid img-thumbnail" style="max-width: 120px" src=
+                                            "{{ item.href }}"
+                                         alt="">
+                                </div>
+                                <div class="pt-2">
+                                    <h4>{{ item.title }}</h4>
+                                    <h5>{{ item.content }}</h5>
+                                    <p class="mb-1">{{ item.description }}</p>
+                                    <p class="text-danger"><em>{{ item.cite }}</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <h3 class="resume-title mt-5">Web servers and packages <span
+                            class="text-danger" style="font-size: 1rem">more than 92,000 visits</span></h3>
+                    {% for index, item in webData.iterrows %}
+                        <div class="resume-item">
+                            <div class="d-flex">
+                                <div class="">
+                                    <img class="me-3 img-fluid img-thumbnail" style="max-width: 120px"
+                                         src="{{ item.img }}" alt="">
+                                </div>
+                                <div class="pt-2">
+                                    <a href="{{ item.href }}" target="_blank"
+                                       style="text-decoration: none;"><h4>{{ item.title }}</h4></a>
+                                    <h5>{{ item.href }}</h5>
+                                    <p class="mb-1" style="text-align: justify">{{ item.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section><!-- End Resume Section -->
+</main>

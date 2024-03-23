@@ -1,0 +1,3 @@
+OC1=C[C-]2[OH+]C(c3ccc(O)c(O)c3)=C(O)C=C2C(O)=C1
+O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12
+OCC(O)C(O)C(O)C(O)CO

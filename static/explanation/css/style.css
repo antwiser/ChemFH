@@ -1,0 +1,23 @@
+.layui-panel {
+    background: #E7E6E6;
+    color: #000000;
+    font-weight: bold;
+    font-family: 'Arial', serif;
+    padding-left: 1rem;
+}
+
+
+.main-text {
+    font-size: 1.3rem;
+    text-align: justify;
+}
+
+.ui.items > .item > .image:not(.ui) {
+    width: 240px;
+}
+
+
+section {
+    padding: 0;
+}
+

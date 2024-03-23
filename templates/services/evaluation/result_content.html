@@ -1,0 +1,100 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/css/header.css' %}">
+
+<main class="">
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+            <i class="fas fa-align-justify"></i> | Summary
+        </div>
+
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <th width="30%"><i class="fas fa-dna"></i>　Number of molecules:</th>
+                <td>{{ smiles_count }}</td>
+            </tr>
+            <tr>
+                <th width="30%"><i class="fas fa-download"></i>　Downloads:</th>
+                <td class="link-row">
+                    <a href="{% url 'service:filter' %}" style="text-decoration: none;">
+                        <button type="button" class="btn btn-success btn-sm">Back</button>
+                    </a>
+                    <a href="{% url 'service:evaluation' %}" style="text-decoration: none;">
+                        <button type="button" class="btn btn-primary btn-sm">ADMET Evaluation</button>
+                    </a>
+                    <a href="{{ result_real_path }}" style="text-decoration: none;">
+                        <button type="button" class="btn btn-info btn-sm"><i class='fas fa-download'></i> Download as
+                            CSV
+                        </button>
+                    </a>
+                    {#                    <a href="javascript:void(0);" style="text-decoration: none;" class="" id="download_pdf">#}
+                    {#                        <button type="button" class="btn btn-danger btn-sm"><i class='fas fa-download'></i>#}
+                    {#                            Download as PDF#}
+                    {#                        </button>#}
+                    {#                    </a>#}
+                    <i class="fas fa-info-circle" data-toggle="tooltip" title=""
+                       data-placement="right"
+                       aria-hidden="true"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-success" role="alert">
+            <i class="fas fa-align-justify"></i> | Results
+        </div>
+
+        <table class="table table-bordered table-hover table-responsive">
+            <thead>
+            <tr class="text-center">
+                {% if smiles_count != 1 %}
+                    <th class='text-center'>INDEX</th>{% endif %}
+                <th class='text-center' width='15%'>SMILES</th>
+                {% for mechanism in mechanisms %}
+                    <th class='text-center'>{{ mechanism }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for molecule in avg_result %}
+                <tr class="text-center">
+                    {% if smiles_count != 1 %}
+                        <td class="align-middle">{{ forloop.counter }}</td>{% endif %}
+                    <td class="align-middle">
+                        {{ smiles }}
+                    </td>
+                    {% for data in molecule %}
+                        <td class="align-middle">{{ data|floatformat:3 }}</td>
+                    {% endfor %}
+                    <td>
+                        <div id="radar"></div>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</main>
+<script>
+    {#var chart = echarts.init(document.getElementById('radar'), 'white', {renderer: 'canvas'});#}
+    {##}
+    {#$(#}
+    {#    function () {#}
+    {#        fetchData(chart);#}
+    {#    }#}
+    {#);#}
+    {##}
+    {#function fetchData() {#}
+    {#    $.ajax({#}
+    {#        type: "GET",#}
+    {#        url: "http://127.0.0.1:8000/services/radar",#}
+    {#        dataType: 'json',#}
+    {#        success: function (result) {#}
+    {#            chart.setOption(result.data);#}
+    {#        }#}
+    {#    });#}
+    {# }#}
+</script>

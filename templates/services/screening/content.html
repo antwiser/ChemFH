@@ -1,0 +1,161 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'screening/css/style.css' %}"/>
+<link rel="stylesheet" href="{% static 'common/bootstrap_icon/bootstrap-icons.css' %}"
+      crossorigin="anonymous">
+<link href="{% static 'common/css/fileinput.min.css' %}"
+      media="all" rel="stylesheet" type="text/css"/>
+<style>
+    a {
+        color: #2C3F58;
+    }
+</style>
+
+<main class="main-content container">
+    <div class="mt-5 main-content">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Load a molecule file
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Enter a list of
+                    SMILES
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                 tabindex="0">
+                <form action="{% url 'service:filterCal' %}" method="post" id="form1" enctype="multipart/form-data"
+                      class="border p-3 border-top-0 mb-3">
+                    {% csrf_token %}
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2">
+                            <div class="mb-3">
+                                <input id="molecule-file" name="uploadfile" type="file">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" value="1" name="method">
+                    <input type="hidden" value="0" name="is_example" id="is_example_input">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-around">
+                            <a href="{% static 'screening/files/example.sdf' %}" download="example.sdf">
+                                Example.sdf
+                            </a>
+                            <a href="{% static 'screening/files/example.txt' %}" download="example.txt">
+                                Example.txt
+                            </a>
+                            <a href="{% static 'screening/files/example.csv' %}" download="example.csv">
+                                Example.csv
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 text-right">
+                            <button class="btn btn-primary" type="button" onclick="submit_with_example()">Submit with
+                                example file
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <button class="btn btn-success" type="button" onclick="submit1()">Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <form action="{% url 'service:filterCal' %}" method="post" id="form2"
+                      class="border p-3 border-top-0">
+                    {% csrf_token %}
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    <label for="exampleFormControlTextarea1">SMILES(MAX <span class="text-danger">5000</span>)
+                        <button type="button" class="btn btn-primary"
+                                onclick="$('#exampleFormControlTextarea1').val('C1=CC=C(C=C1)C(=O)NC2=C(N=C(S2)N)C3=CC=CS3\nCC(C)OC(=O)CC(=O)CSC1=C(C=C2CCCC2=N1)C#N\nC1CCC2(CC1)NC3=CC(=C(C#N)C#N)C=CC3=N2\nCCC1=NNC2=C1/C(=N\\O)/CC(C2)C3=CC=CC=C3\nCN1C2=CC=CC=C2N=C1SC3=CS(=O)(=O)C4=CC=CC=C43')">
+                            Example
+                        </button>
+                    </label>
+                    <div class="form-group text-start mt-4">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" name="smiles-list"
+                              dataType="Require" msg="This field is required!" placeholder="Enter SMILES"></textarea>
+                    </div>
+                    <input type="hidden" value="2" name="method">
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-center">
+                            <button class="btn btn-danger" type="button" aria-label="Reset" value="Reset"
+                                    onclick="document.getElementById('form2').reset()">Reset
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3"></div>
+                        <div class="col-3">
+                            <button class="btn btn-success" type="button" aria-label="Submit" value="Submit"
+                                    onclick="submit2()">Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="modal" tabindex="-1" id="loading-btn">
+    <div class="modal-dialog d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="modal-content" style="background: none; border: none;">
+            <div class="modal-body text-center" style="border: none;">
+                <div class="load">
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                    <hr/>
+                </div>
+                <h2 style="color: white">Please Wait...</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'common/js/buffer.min.js' %}"></script>
+<script src="{% static 'common/js/filetype.min.js' %}"></script>
+
+
+<script src="{% static 'common/js/fileinput.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $("#molecule-file").fileinput({
+            showUpload: false,
+            allowedFileExtensions: ["csv", "txt", "sdf"],
+            maxFileCount: 1,
+            showPreview: false,
+        });
+    });
+
+    function showmodal() {
+        const myModal = new bootstrap.Modal('#loading-btn', {
+            keyboard: false,
+            backdrop: 'static',
+        })
+        myModal.show()
+    }
+
+    function submit_with_example() {
+        $('#is_example_input').val('1');
+        submit1();
+    }
+
+    function submit1() {
+        document.getElementById('form1').submit();
+        showmodal();
+    }
+
+    function submit2() {
+        document.getElementById('form2').submit();
+        showmodal();
+    }
+</script>

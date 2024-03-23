@@ -1,0 +1,29 @@
+.warn {
+    border-width: 0 0 0 4px;
+    border-style: solid;
+    border-color: rgb(11, 135, 218);
+    border-radius: 0 4px 4px 0;
+    background-color: rgb(239, 246, 251);
+    color: rgb(33, 37, 41);
+    display: block;
+    padding: 16px 24px 16px 24px;
+    margin: 32px 0 32px 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+blockquote {
+    overflow: visible;
+    margin: 2em 0;
+    padding: 24px;
+    border-width: 0 0 0 4px;
+    border-style: solid;
+    border-color: rgb(63, 81, 181);
+    border-radius: 0 4px 4px 0;
+    background:  rgb(247, 247, 247);
+    color: rgb(33, 37, 41);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    quotes: "“" "”" "‘" "’";
+}
